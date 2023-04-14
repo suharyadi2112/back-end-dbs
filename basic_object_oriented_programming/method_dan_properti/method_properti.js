@@ -15,6 +15,9 @@ class Car {
     console.log('you are not allowed to change the chassis number');
   }
 
+  /*
+    dari komunitas javascript, pemberian tanda underscore pada properti atau method bisa dijadikan sebagai penanda bahwa ia dianggap private.
+  */
    _generateChassisNumber() { //contoh method didalam class
     return `${this.brand}-${Math.floor(Math.random() * 1000)}`;
   }
