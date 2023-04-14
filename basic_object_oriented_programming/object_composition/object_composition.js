@@ -40,10 +40,14 @@ function canDeployApp(developer) {
 }
 /***/ 
 
+
+
 /******/
 function createFrontEndDeveloper(name) {
-  const developer = new Developer(name);
-  return Object.assign(developer, canBuildUI(developer));
+  const developer = new Developer(name); //panggil super class utama "Developer"
+
+  /*Object.assign() adalah sebuah method pada objek global di JavaScript yang digunakan untuk menggabungkan dua atau lebih objek menjadi satu objek baru.*/
+  return Object.assign(developer, canBuildUI(developer)); // Object.assign(target, source(sumber));
 }
  
 function createBackEndDeveloper(name) {
@@ -58,45 +62,35 @@ function createDevOps(name) {
  
 function createFullStackDeveloper(name) {
   const developer = new Developer(name);
-  return Object.assign(developer, canBuildUI(developer), canBuildAPI(developer), canDeployApp(developer));
+  return Object.assign(developer, canBuildUI(developer), canBuildAPI(developer), canDeployApp(developer)); // Object.assign(target, source(sumber));
 }
 /******/
 
+
+
  
-const frontEndDeveloper = createFrontEndDeveloper('Fulan');
-frontEndDeveloper.commitChanges();
-frontEndDeveloper.buildUI();
-console.log(`is ${frontEndDeveloper.name} developer? `, frontEndDeveloper instanceof Developer);
+// const frontEndDeveloper = createFrontEndDeveloper('Fulan');
+// frontEndDeveloper.commitChanges();
+// frontEndDeveloper.buildUI();
+// console.log(`is ${frontEndDeveloper.name} developer? `, frontEndDeveloper instanceof Developer);
  
-const backEndDeveloper = createBackEndDeveloper('Fulana');
-backEndDeveloper.commitChanges();
-backEndDeveloper.buildAPI();
-console.log(`is ${backEndDeveloper.name} developer? `, backEndDeveloper instanceof Developer);
+// const backEndDeveloper = createBackEndDeveloper('Fulana');
+// backEndDeveloper.commitChanges();
+// backEndDeveloper.buildAPI();
+// console.log(`is ${backEndDeveloper.name} developer? `, backEndDeveloper instanceof Developer);
  
-const devOpsDeveloper = createDevOps('Fulani');
-devOpsDeveloper.commitChanges();
-devOpsDeveloper.deployApp();
-console.log(`is ${devOpsDeveloper.name} developer? `, devOpsDeveloper instanceof Developer);
+// const devOpsDeveloper = createDevOps('Fulani');
+// devOpsDeveloper.commitChanges();
+// devOpsDeveloper.deployApp();
+// console.log(`is ${devOpsDeveloper.name} developer? `, devOpsDeveloper instanceof Developer);
  
 const fullStackDeveloper = createFullStackDeveloper('Fulanah');
 fullStackDeveloper.buildUI();
 fullStackDeveloper.buildAPI();
 fullStackDeveloper.deployApp();
+  
+/* 
+  instanceof adalah operator pada JavaScript yang digunakan untuk memeriksa apakah suatu objek merupakan instance dari suatu kelas tertentu atau turunan dari kelas tersebut.
+*/
 console.log(`is ${fullStackDeveloper.name} developer? `, fullStackDeveloper instanceof Developer);
  
-/**
-* Output:
-* Fulan is committing changes...
-* Fulan is building UI...
-* is Fulan developer?  true
-* Fulana is committing changes...
-* Fulana is building API...
-* is Fulana developer?  true
-* Fulani is committing changes...
-* Fulani is deploying app...
-* is Fulani developer?  true
-* Fulanah is building UI...
-* Fulanah is building API...
-* Fulanah is deploying app...
-* is Fulanah developer?  true
-*/
