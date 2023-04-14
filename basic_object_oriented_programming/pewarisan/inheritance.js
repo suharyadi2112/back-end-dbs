@@ -1,3 +1,12 @@
+
+/*
+*
+*
+Inheritance (pewarisan) pada class di JavaScript memungkinkan sebuah class untuk mewarisi sifat atau properti dari class lainnya
+*
+*
+*/
+
 // Superclass
 class MailService {
   constructor(sender) {
@@ -14,7 +23,7 @@ class WhatsAppService extends MailService { //inheritance dari mail service
   
   sendBroadcastMessage(message, receivers) {
     for (const receiver of receivers) {
-      this.sendMessage(message, receiver);
+      this.sendMessage(message, receiver);//method milik class MailService
     }
   }
 
@@ -25,7 +34,7 @@ class EmailService extends MailService { //inheritance dari mail service
  
   sendDelayedMessage(message, receiver, delay) {
     setTimeout(() => {
-      this.sendMessage(message, receiver);
+      this.sendMessage(message, receiver);//method milik class MailService
     }, delay);
   }
 
