@@ -4,7 +4,7 @@ class Developer {
     this.name = name;
   }
  
-  commitChanges() {
+  commitChanges() { //method biasa di dalam class
     console.log(`${this.name} is committing changes...`);
   }
 
@@ -65,7 +65,6 @@ function createFullStackDeveloper(name) {
   return Object.assign(developer, canBuildUI(developer), canBuildAPI(developer), canDeployApp(developer)); // Object.assign(target, source(sumber));
 }
 /******/
-
 
 
  
