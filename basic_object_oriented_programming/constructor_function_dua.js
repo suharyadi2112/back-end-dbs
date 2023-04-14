@@ -12,13 +12,17 @@
  */
 
 class Car {
-  constructor(brand, color, maxSpeed, chassisNumber) {
-    this.brand = brand;
+  constructor(brand, color, maxSpeed, chassisNumber) { //menggunakan constructor
+    this.brand = brand; //property
     this.color = color;
     this.maxSpeed = maxSpeed;
     this.chassisNumber = chassisNumber;
+
+    // Set a random chassis number (set nilai default property)
+    this.chassisNumber = `${brand}-${Math.floor(Math.random() * 1000) + 1}`;
   }
- 
+  
+  //chill method didalam class
   drive() {
     console.log(`${this.brand} ${this.color} is driving`);
   }
@@ -29,6 +33,10 @@ class Car {
  
   turn() {
     console.log(`${this.brand} ${this.color} is turning`);
+  }
+
+  checkChess() { //panggil default nilai property
+      console.log(`${this.chassisNumber} cek default nilai property`)
   }
 }
  
@@ -44,6 +52,9 @@ console.log(car3);
 car1.drive();
 car2.drive();
 car3.drive();
+
+/* tampilkan checkChess method dengan property default*/
+car3.checkChess();
  
 /* Output
 Car { brand: 'Toyota', color: 'Silver', maxSpeed: 200, chassisNumber: 'to-1' }
