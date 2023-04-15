@@ -1,0 +1,11 @@
+{
+  "name": "coffeemachine",
+  "version": "1.0.0",
+  "description": "project javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "dicoding project programming"
+  },
+  "author": "suharyadi",
+  "license": "ISC"
+}
