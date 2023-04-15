@@ -4,7 +4,8 @@
   "description": "project javascript",
   "main": "index.js",
   "scripts": {
-    "test": "dicoding project programming"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "suharyadi",
   "license": "ISC"
