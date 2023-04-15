@@ -10,21 +10,25 @@ console.log("Kopi Anda sudah siap!");*/
 // const coffeeStock = require('./state');
 
 // import untuk lebih dari 1 variable //destructuring object untuk mendapatkan nilai yang di-import
-const {coffeeStock, isCoffeeMachineReady} = require('./state');// nama variable harus sama saat diexport
+// const {coffeeStock, isCoffeeMachineReady} = require('./state');// nama variable harus sama saat diexport
  
-console.log(coffeeStock)
-console.log(isCoffeeMachineReady)
+// console.log(coffeeStock)
+// console.log(isCoffeeMachineReady)
  
 
-const makeCoffee = (type, miligrams) => {
-    if (coffeeStock[type] >= miligrams) {
-      console.log("Kopi berhasil dibuat!");
-    } else {
-      console.log("Biji kopi habis!");
-    }
-  }
+// const makeCoffee = (type, miligrams) => {
+//     if (coffeeStock[type] >= miligrams) {
+//       console.log("Kopi berhasil dibuat!");
+//     } else {
+//       console.log("Biji kopi habis!");
+//     }
+//   }
    
-makeCoffee("robusta", 80);
+// makeCoffee("robusta", 80);
 /* output
 Kopi berhasil dibuat!
 */
+
+// versi es6 module, ( perlu di tambahkan "type": "module" di package json)
+import coffeeStockNew from "./state.js";
+console.log(coffeeStockNew)
