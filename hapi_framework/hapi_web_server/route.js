@@ -94,6 +94,32 @@ const routes = [
         },
     },
 
+    /*
+    route Body/Payload Request sub bab
+    */
+    {
+        method: 'POST',
+        path: '/login',
+        handler: (request, h) => {
+            const { username, password } = request.payload;
+            return `cek username: ${username}! , password: ${password}!`;
+        },
+    },
+
+
+    /*
+    Parameter "h" pada Hapi framework JavaScript merujuk pada fungsi "response toolkit" yang disediakan oleh framework
+    */
+     {
+        method: 'GET',
+        path: '/contoh_h',
+        handler: (request, h) => {
+            const response = h.response('success').code(200);;
+            response.type('text/plain');
+            response.header('X-Custom', 'some-value');
+            return response;
+        },
+    },
 ];
 
 
