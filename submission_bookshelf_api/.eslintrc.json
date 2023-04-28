@@ -24,6 +24,10 @@
         "no-tabs": "off",
         "no-mixed-spaces-and-tabs":"off",
         "no-trailing-spaces":"off",
-        "object-curly-newline": "off"
+        "object-curly-newline": "off",
+        "object-property-newline": "off",
+        "camelcase": "off",
+        "arrow-body-style" : "off",
+        "arrow-parens" : "off"
     }
 }

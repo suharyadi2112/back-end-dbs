@@ -1,11 +1,11 @@
-const { addNoteHandler, getNoteHandler, getNoteByIdHandler, editNoteByIdHandler, deleteNoteByIdHandler } = require('./handler');
+const { addBooksHandler, getBooksHandler, getBooksByIdHandler, editBooksByIdHandler, deleteBooksByIdHandler } = require('./handler');
 
 const routes = [
   {
     method: 'POST',
-    path: '/notes',
+    path: '/books',
     // handler: (request, h) => {},//sebelumnya handler langsung disini
-    handler: addNoteHandler, //mereferer handler.js
+    handler: addBooksHandler, //mereferer handler.js
 
     // cors bisa di set dari HAPI framework
     options: {
@@ -17,9 +17,9 @@ const routes = [
 
   {
     method: 'GET',
-    path: '/notes',
+    path: '/books',
     // handler: (request, h) => {},//sebelumnya handler langsung disini
-    handler: getNoteHandler, //mereferer handler.js
+    handler: getBooksHandler, //mereferer handler.js
 
     // cors bisa di set dari HAPI framework
     options: {
@@ -31,9 +31,9 @@ const routes = [
 
   {
     method: 'GET',
-    path: '/notes/{id}',
+    path: '/books/{bookId}',
     // handler: (request, h) => {},//sebelumnya handler langsung disini
-    handler: getNoteByIdHandler, //mereferer handler.js
+    handler: getBooksByIdHandler, //mereferer handler.js
 
     // cors bisa di set dari HAPI framework
     options: {
@@ -45,9 +45,9 @@ const routes = [
 
   {
     method: 'PUT',
-    path: '/notes/{id}',
+    path: '/books/{bookId}',
     // handler: (request, h) => {},//sebelumnya handler langsung disini
-    handler: editNoteByIdHandler, //mereferer handler.js
+    handler: editBooksByIdHandler, //mereferer handler.js
 
     // cors bisa di set dari HAPI framework
     options: {
@@ -59,9 +59,9 @@ const routes = [
 
   {
     method: 'DELETE',
-    path: '/notes/{id}',
+    path: '/books/{id}',
     // handler: (request, h) => {},//sebelumnya handler langsung disini
-    handler: deleteNoteByIdHandler, //mereferer handler.js
+    handler: deleteBooksByIdHandler, //mereferer handler.js
 
     // cors bisa di set dari HAPI framework
     options: {
