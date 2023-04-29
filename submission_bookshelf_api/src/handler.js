@@ -10,8 +10,8 @@ const addBooksHandler = (request, h) => {
  const { name, year, author, summary, publisher, pageCount, readPage, reading } = request.payload;
 
  const id = nanoid(16); //set id dari library nanoid
- const createdAt = new Date().toISOString(); //tanggal sekarang ke string
- const updatedAt = createdAt; //mengambil dari tanggal created_at
+ const insertedAt = new Date().toISOString(); //tanggal sekarang ke string
+ const updatedAt = insertedAt; //mengambil dari tanggal created_at
 
   //cek readpage jika lebih besar dari page count
   if (readPage > pageCount) { 
@@ -25,7 +25,7 @@ const addBooksHandler = (request, h) => {
   } 
 
   //cek jika nama buku kosong
-  if (name === '') {
+  if (name === undefined) {
     const response = h.response({ // h adalah toolkit dari hapi
       status: 'fail',
       message: 'Gagal menambahkan buku. Mohon isi nama buku',
@@ -52,7 +52,7 @@ const addBooksHandler = (request, h) => {
     readPage,
     reading,
     finished,
-    createdAt, updatedAt,
+    insertedAt, updatedAt,
   };
   books_shelf.push(newBooks); //push ke new array file notes.js
 
@@ -106,13 +106,13 @@ const getBooksByIdHandler = (request, h) => {
   const { bookId } = request.params;//parameter bookId
 
   //filter / cari data berdasarkan id
-  const booksByid = books_shelf.filter((n) => n.id === bookId)[0];
+  const book = books_shelf.filter((n) => n.id === bookId)[0];
 
-  if (booksByid !== undefined) {
+  if (book !== undefined) {
     const response = h.response({
       status: 'success',
       data: {
-        booksByid,
+        book,
       },
     });
     response.code(200);
@@ -138,7 +138,7 @@ const editBooksByIdHandler = (request, h) => {
   const updatedAt = new Date().toISOString();
 
   //cek jika nama buku kosong
-  if (name === '') {
+  if (name === undefined) {
     const response = h.response({ // h adalah toolkit dari hapi
       status: 'fail',
       message: 'Gagal memperbarui buku. Mohon isi nama buku',
